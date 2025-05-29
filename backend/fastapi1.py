@@ -29,13 +29,13 @@ class Item(BaseModel):
     is_offer:bool=None
 
 my_global_index = "initial value"
-nse = Nse()
-all_stock_codes = nse.get_stock_codes()
-tickers = [code + ".NS" for code in all_stock_codes if code != 'SYMBOL']
+# nse = Nse()
+# all_stock_codes = nse.get_stock_codes()
+# tickers = [code + ".NS" for code in all_stock_codes if code != 'SYMBOL']
 
 # Add indices to tickers
 indices = ["^GSPC", "^IXIC", "^DJI", "^NSEI", "^BSESN"]
-tickers.extend(indices)
+
 context_template = """You are a financial AI assistant. You have access to the following up-to-date stock and market statistics:
 
 {context}
