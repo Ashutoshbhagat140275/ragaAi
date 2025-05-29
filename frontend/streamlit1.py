@@ -2,6 +2,8 @@ import streamlit as st
 import requests
 from gtts import gTTS
 import os
+
+BACKEND_URL = "https://your-backend-service.onrender.com"
 # st.title("hello,streamlit")
 # st.write("this is streamlit")
 
@@ -94,7 +96,7 @@ question=st.text_input("please inter you question")
 if st.button("Ask"):
     if question:
         response=requests.get(
-            "http://localhost:8000/ask_question",
+            f"{BACKEND_URL}/ask_question",
             params={"question":question}
         )
 
@@ -125,7 +127,7 @@ if st.button("Ask"):
 
 if st.button("add_data"):
     response=requests.get(
-        "http://localhost:8000/Scraping_data"
+        f"{BACKEND_URL}/Scraping_data"
     )
     if response.status_code==200:
         st.write("file added successfully")
